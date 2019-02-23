@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "GetTime";
+}
+
+<h2>GetTime</h2>
+<div>
+    <p>
+        Action 時間：
+        @ViewBag.Time
+    </p>
+</div>
+<div>
+    <p>
+        Child Action 時間：
+        @{
+            Html.RenderAction("GetCacheTimeForChildAction");
+        }
+    </p>
+</div>

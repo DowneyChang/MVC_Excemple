@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Web.Models.Product>
+@{
+    ViewBag.Title = "DemoInclude";
+}
+
+<h2>DemoInclude</h2>
+
+<table>
+    <tr>
+        <th>@Html.DisplayNameFor(x => x.Category.CategoryName)</th>
+        <th>@Html.DisplayNameFor(x => x.Supplier.CompanyName)</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+    <tr>
+        <td>@Html.DisplayFor(x => item.ProductName)</td>
+        <td>@Html.DisplayFor(x => item.Category.CategoryName)</td>
+        <td>@Html.DisplayFor(x => item.Supplier.CompanyName)</td>
+    </tr>
+    }
+</table>

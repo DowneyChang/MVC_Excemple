@@ -1,0 +1,23 @@
+﻿<h2>DemoMultiModelObject</h2>
+<div>
+    <ul>
+        <li>@ViewBag.Author</li>
+        <li>@ViewBag.Book</li>
+    </ul>
+</div>
+
+<h3>Product Name</h3>
+<ul>
+    @foreach (var item in ViewBag.Product as List<Product>)
+    {
+        <li>@item.ProductName</li>
+    }
+</ul>
+
+<h3>Category Name</h3>
+<ul>
+    @foreach (var item in ViewBag.Category as List<Category>)
+    {
+        <li>@item.CategoryName</li>
+    }
+</ul>

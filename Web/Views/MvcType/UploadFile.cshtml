@@ -1,0 +1,28 @@
+﻿
+@{    
+    string ActionName = ViewBag.Title;
+}
+
+<h2>@ActionName</h2>
+<div>
+    <span>@Html.Raw(TempData["Message"])</span>
+    @using (Html.BeginForm(ActionName, "MvcType", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            <input type="button" id="AddFile" value="增加檔案" />
+            <label style="width:50px"></label>
+            <input type="button" id="DelFile" value="減少檔案" />
+        </div>
+        <hr />
+        <div class="uploadFile">
+            <p><input type="file" id="file" name="file" /></p>
+        </div>
+        <hr />
+        <div>
+            <input type="submit" value="上傳" />
+        </div>
+    }
+</div>
+@section Scripts {
+    <script type="text/javascript" src="~/Scripts/MvcType/AddFile.js"></script>
+}

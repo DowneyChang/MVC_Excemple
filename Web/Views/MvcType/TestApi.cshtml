@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "TestApi";
+}
+
+<h2>TestApi</h2>
+<div>
+    <input type="button" id="AddName" value="新增" />
+    <a>    </a>
+    <input type="button" id="DelName" value="減少" />
+    <form id="NameList">
+        <p><input type="text" id="NameList" name="NameList" class="NL" value="" /></p>
+    </form>
+    <input type="button" id="submitList" value="送出" />
+</div>
+
+<hr />
+<div class="jsonContent">
+    @Html.AntiForgeryToken()
+</div>
+
+@section Scripts {
+    <script type="text/javascript" >
+        $(function () {
+            $("#AddName").click(function () {
+                var newTag = $("<p>").append(
+                    $("<input>").attr("type", "text").attr("id", "NameList" + $('#NameList input').length).attr("name", "NameList").addClass("NL")
+                );
+                $("#NameList").append(newTag);
+            });
+
+            $('#DelName').click(function () {
+                if ($('#NameList input').length > 1) {
+                    $('#NameList input').last().remove();
+                }
+            });
+
+            $('#submitList').click(function () {
+                $.ajax({
+                    url: "@Url.Action("Api1")",
+                    data: $('#NameList').serializeArray(),
+                    error: function () {
+                        alert("Error");
+                    },
+                    success: function (response) {
+                        var newTag = $("<p>").append("Json Response:" + response);
+                        $('.jsonContent').append(newTag);
+                    }
+                });
+            });
+        });
+    </script>
+}

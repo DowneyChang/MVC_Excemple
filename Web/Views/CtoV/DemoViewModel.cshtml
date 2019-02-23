@@ -1,0 +1,30 @@
+﻿@model Web.Models.ViewModels.ProductCategoryViewModel
+
+@{
+    ViewBag.Title = "DemoViewModel";
+}
+
+<h2>DemoViewModel</h2>
+
+<div>
+    <ul>
+        <li>@Model.Name</li>
+        <li>@Model.Book</li>
+    </ul>
+</div>
+
+<h3>Product Name</h3>
+<ul>
+    @foreach (var item in Model.Product)
+    {
+        <li>@item.ProductName</li>
+    }
+</ul>
+
+<h3>Category Name</h3>
+<ul>
+    @foreach (var item in Model.Category)
+    {
+        <li>@item.CategoryName</li>
+    }
+</ul>

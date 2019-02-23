@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "DemoVDModel";
+}
+
+<h2>DemoVDModel</h2>
+<ul>
+    @foreach (var item in ViewData["products"] as List<Product>)
+    {
+        <li>@item.ProductName</li>
+    }
+</ul>
+

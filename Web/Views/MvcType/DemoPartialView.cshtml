@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "DemoPartialView";
+}
+
+<h2>DemoPartialView</h2>
+<p>請稍等約3秒鐘...</p>
+<div id="now">
+
+</div>
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            $.get(
+                "@Url.Action("GetTime")",
+                null,
+                function (res) {
+                    $('#now').html(res);
+                }                
+            );
+        });
+    </script>
+}

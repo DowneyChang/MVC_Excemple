@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "DemoFormCollection";
+}
+
+<h2>DemoFormCollection</h2>
+<div>
+    @using (Html.BeginForm())
+    {
+        <p>
+            姓名：<input type="text" name="name" />
+            <br />
+            年紀：<input type="text" name="age" />
+            <input type="submit" value="送出" />
+        </p>
+    }
+</div>
+<hr />
+<p>
+    你的姓名：@ViewBag.Name<br />
+    你的年齡：@ViewBag.Age
+</p>

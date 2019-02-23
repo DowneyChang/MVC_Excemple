@@ -1,0 +1,26 @@
+﻿@model List<SelectListItem>
+@{
+    ViewBag.Title = "ShowImage";
+}
+
+<h2>ShowImage</h2>
+<div>
+    @Html.DropDownList("ImageName", Model)
+</div>
+<img id="Img1" alt="沒有這張圖片" style="width:50%" />
+
+@section Scripts {
+    <script type="text/javascript">
+        var actionUrl = "@Url.Action("GetDeskFile")";
+        $(function () {
+            ChangImg($('#ImageName').val());
+            $('#ImageName').change(function () {
+                ChangImg($(this).val());
+            });
+        });
+
+        function ChangImg(fileName) {
+            $('#Img1').attr('src', actionUrl + '?FileName=' + fileName);
+        };
+    </script>
+}

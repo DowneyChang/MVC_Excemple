@@ -1,0 +1,18 @@
+﻿@model Web.Models.ViewModels.PersonViewModel
+
+@{
+    ViewBag.Title = "ShowViewModelBinding";
+}
+
+<h2>ShowViewModelBinding</h2>
+<div>
+    <p>男生資訊：</p>
+    <p>男生姓名：@Model.Man.Name</p>
+    <p>男生年齡：@Model.Man.Age</p>
+</div>
+<br />
+<div>
+    <p>女生資訊：</p>
+    <p>女生姓名：@Model.Woman.Name</p>
+    <p>女生年齡：@Model.Woman.Age</p>
+</div>

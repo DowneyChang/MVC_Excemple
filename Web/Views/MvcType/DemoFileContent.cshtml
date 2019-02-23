@@ -1,0 +1,27 @@
+﻿@model List<SelectListItem>
+@{
+    ViewBag.Title = "DemoFileContent";
+}
+
+<h2>DemoFileContent</h2>
+<div>
+    <span>@Html.Raw(TempData["Message"])</span>
+    
+    @using (Html.BeginForm("DemoFileContent", "MvcType", FormMethod.Post))
+    {
+        <div>
+            @*<select name="id">
+
+                @foreach (var F in ViewBag.AllFile)
+                {
+                    <option value="@F.Id">@F.Name</option>
+                }
+            </select>
+            *@
+            @Html.DropDownList("FileId", Model)
+        </div>
+        <hr />
+        <input type="submit" name="name" value="下載" />
+    }
+
+</div>
